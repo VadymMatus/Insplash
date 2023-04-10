@@ -1,16 +1,21 @@
-# insplash
+# Insplash
 
-A new Flutter project.
+Unsplash client written on Flutter.
 
-## Getting Started
+## Futures
+1. General:
+   - [x] Network error handling
+   - [x] Hero animation between screens 
+   
+2. Screen for viewing new images from the service
+   - [x] Pull down to refresh
+   - [x] Lazy loading
+   - [x] Clicking on the image goes to full screen mode
+   - [x] Clicking on the card goes to details screen
 
-This project is a starting point for a Flutter application.
+3. Photo details screen
+   - [x] Pull down/up to exit
+   - [x] Clicking on the image goes to full screen mode
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+4. Photo full screen
+   - [x] Zoom in/out photo
