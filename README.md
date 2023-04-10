@@ -19,3 +19,6 @@ Unsplash client written on Flutter.
 
 4. Photo full screen
    - [x] Zoom in/out photo
+
+## Download
+Release apk can be downloaded [here](https://github.com/VadymMatus/Insplash/releases/latest)
