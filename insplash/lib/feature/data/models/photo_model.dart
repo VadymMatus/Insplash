@@ -8,8 +8,16 @@ class PhotoListResponse {
 
   PhotoListResponse(this.results);
 
-  PhotoListResponse.fromJsonArray(List json)
-      : results = json.map((i) => PhotoModel.fromJson(i)).toList();
+  factory PhotoListResponse.fromJsonArray(List json) {
+    var result = <PhotoModel>[];
+    json.forEach((element) {
+      try {
+        result.add(PhotoModel.fromJson(element));
+      } catch (e, s) {}
+    });
+
+    return PhotoListResponse(result);
+  }
 }
 
 class PhotoModel extends PhotoEntity {
@@ -58,9 +66,8 @@ class PhotoModel extends PhotoEntity {
         likes: json["likes"],
         links:
             json['links'] != null ? LinksModel.fromJson(json['links']) : null,
-        sponsorship: json['sponsorship'] != null
-            ? SponsorshipModel.fromJson(json['sponsorship'])
-            : null,
+        sponsorship: null,
+        //json['sponsorship'] != null ? SponsorshipModel.fromJson(json['sponsorship']) : null,
         urls: json['urls'] != null ? UrlsModel.fromJson(json['urls']) : null,
         user: json['user'] != null ? UserModel.fromJson(json['user']) : null);
   }
@@ -96,8 +103,8 @@ class LinksModel extends LinksEntity {
 
   factory LinksModel.fromJson(Map<String, dynamic> json) {
     return LinksModel(
-        self: json["self"],
-        html: json["html"],
+        self: json["self"] ?? "",
+        html: json["html"] ?? "",
         photos: json["photos"] ?? "",
         likes: json["likes"] ?? "",
         portfolio: json["portfolio"] ?? "",
@@ -349,7 +356,9 @@ class ProfileImageModel extends ProfileImageEntity {
 
   factory ProfileImageModel.fromJson(Map<String, dynamic> json) {
     return ProfileImageModel(
-        small: json['small'], medium: json['medium'], large: json['large']);
+        small: json['small'] ?? "",
+        medium: json['medium'] ?? "",
+        large: json['large'] ?? "");
   }
 
   Map<String, dynamic> toJson() {
